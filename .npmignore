@@ -18,9 +18,11 @@ testing/
 .travis.yml
 .vscode/
 .circleci/
+src/
 docs/
 tests/
 typings/*.json
 master.json
 .env
 dtslint.json
+prettier.json
