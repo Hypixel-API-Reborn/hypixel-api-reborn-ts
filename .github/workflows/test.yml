@@ -6,8 +6,8 @@ name: test
 on:
   push:
     paths:
-    - '**.js'
-    branches: [ master ]
+      - "**.js"
+    branches: [master]
   # pull_request:
   #   paths:
   #   - '**.js'
@@ -15,7 +15,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -24,21 +23,21 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: CI
-      run: npm ci --no-optional
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: CI
+        run: npm ci --no-optional
 
-    - name: Build
-      run: npm run build --if-present
+      - name: Build
+        run: npm run build --if-present
 
-    - name: Lint
-      run: npm run lint
+      - name: Lint
+        run: npm run lint
 
-    - name: Test
-      run: npm test
-      env:
-        HYPIXEL_KEY: ${{secrets.HYPIXEL_KEY}}
+      - name: Test
+        run: npm test
+        env:
+          HYPIXEL_KEY: ${{secrets.HYPIXEL_KEY}}

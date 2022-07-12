@@ -6,23 +6,30 @@
   "author": "Hypixel API Reborn",
   "license": "MIT",
   "scripts": {
-    "lint": "gts lint",
-    "fix": "gts fix",
     "build": "tsc",
+    "lint": "eslint . --no-error-on-unmatched-pattern",
+    "fix": "eslint . --fix",
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check .",
+    "format": "prettier --write .",
+    "check-all": "npm run check-format && npm run lint && npm run check-types && npm run build",
     "test": "mocha tests --exit",
-    "test:dev": "nodenv --exec mocha tests -- --exit"
+    "test:dev": "nodenv --exec mocha tests -- --exit",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.30.5",
-    "@typescript-eslint/parser": "^5.30.5",
+    "@typescript-eslint/eslint-plugin": "^5.30.6",
+    "@typescript-eslint/parser": "^5.30.6",
     "chai": "^4.3.6",
     "eslint": "^8.19.0",
     "eslint-config-google": "^0.14.0",
-    "gts": "^3.1.0",
+    "eslint-config-prettier": "^8.5.0",
     "mocha": "^10.0.0",
     "node-env-run": "^4.0.2",
-    "typescript": "^4.0.3"
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4",
+    "husky": "^8.0.0"
   },
   "repository": {
     "type": "git",
@@ -49,5 +56,8 @@
   "homepage": "https://github.com/Hypixel-API-Reborn/hypixel-api-reborn-ts#readme",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
   }
 }
