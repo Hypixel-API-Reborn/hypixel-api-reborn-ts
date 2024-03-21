@@ -1,3 +1,6 @@
-# hypixel-api-reborn-ts
+# Hypixel API Reborn TypeScript has been shutdown. This will now move into its own branch on the main repo
 
-[WIP] TypeScript version of hypixel-api-reborn
+
+~~# hypixel-api-reborn-ts~~
+
+~~[WIP] TypeScript version of hypixel-api-reborn~~
